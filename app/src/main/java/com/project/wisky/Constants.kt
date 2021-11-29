@@ -14,6 +14,7 @@ object Constants {
 
     const val CHECK_USERNAME = "check_username"
     const val REMEMBER_ME = "remember_me"
+    const val WISATA_ID = "wisata_id"
     const val WISATA_NAME = "wisata_name"
     const val WISATA_DESC = "wisata_desc"
     const val WISATA_ADDRESS = "wisata_address"
@@ -45,8 +46,6 @@ object Constants {
     fun ImageView.loadImage(url: String?) {
         Glide.with(this.context)
             .load(url)
-            .apply(RequestOptions().override(500, 500))
-            .centerCrop()
             .into(this)
     }
 }

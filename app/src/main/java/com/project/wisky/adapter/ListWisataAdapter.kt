@@ -42,16 +42,21 @@ class ListWisataAdapter :
                 ivWisata.loadImage(data.wisataImage)
                 tvTitleWisata.text = data.wisataName
             }
+            val mBundle = Bundle()
+            mBundle.putString(Constants.WISATA_ID, data.wisataId)
+            mBundle.putString(Constants.WISATA_NAME, data.wisataName)
+            mBundle.putString(Constants.WISATA_DESC, data.wisataDesc)
+            mBundle.putString(Constants.WISATA_ADDRESS, data.wisataAddress)
+            mBundle.putString(Constants.WISATA_WORKING_HOUR, data.wisataWorkingHour)
+            mBundle.putString(Constants.WISATA_CONTACT, data.wisataContact)
+            mBundle.putString(Constants.WISATA_CATEGORY, data.wisataCategory)
+            mBundle.putString(Constants.WISATA_IMAGE, data.wisataImage)
+
             itemView.setOnClickListener {
-                val mBundle = Bundle()
-                mBundle.putString(Constants.WISATA_NAME, data.wisataName)
-                mBundle.putString(Constants.WISATA_DESC, data.wisataDesc)
-                mBundle.putString(Constants.WISATA_ADDRESS, data.wisataAddress)
-                mBundle.putString(Constants.WISATA_WORKING_HOUR, data.wisataWorkingHour)
-                mBundle.putString(Constants.WISATA_CONTACT, data.wisataContact)
-                mBundle.putString(Constants.WISATA_CATEGORY, data.wisataCategory)
-                mBundle.putString(Constants.WISATA_IMAGE, data.wisataImage)
                 it.findNavController().navigate(R.id.action_homeFragment_to_detailWisataFragment, mBundle)
+            }
+            binding.ivEdit.setOnClickListener {
+                it.findNavController().navigate(R.id.action_homeFragment_to_editWisataFragment, mBundle)
             }
         }
     }

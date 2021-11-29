@@ -16,14 +16,21 @@
             app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/fadeout"
             app:popEnterAnim="@anim/fadein"
-            app:popExitAnim="@anim/fadeout"/>
+            app:popExitAnim="@anim/fadeout" />
         <action
             android:id="@+id/action_homeFragment_to_addWisataFragment"
             app:destination="@id/addWisataFragment"
             app:enterAnim="@anim/anim_slide_in_left"
             app:exitAnim="@anim/anim_slide_out_left"
             app:popEnterAnim="@anim/anim_slide_in_right"
-            app:popExitAnim="@anim/anim_slide_out_right"/>
+            app:popExitAnim="@anim/anim_slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_editWisataFragment"
+            app:destination="@id/editWisataFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout" />
     </fragment>
     <fragment
         android:id="@+id/detailWisataFragment"
@@ -34,13 +41,26 @@
         android:id="@+id/addWisataFragment"
         android:name="com.project.wisky.AddWisataFragment"
         android:label="fragment_add_wisata"
-        tools:layout="@layout/fragment_add_wisata" >
+        tools:layout="@layout/fragment_add_wisata">
         <action
             android:id="@+id/action_addWisataFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_right"
+            app:popExitAnim="@anim/anim_slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/editWisataFragment"
+        android:name="com.project.wisky.EditWisataFragment"
+        android:label="fragment_edit_wisata"
+        tools:layout="@layout/fragment_edit_wisata" >
+        <action
             app:enterAnim="@anim/anim_slide_in_left"
             app:exitAnim="@anim/anim_slide_out_left"
             app:popEnterAnim="@anim/anim_slide_in_right"
             app:popExitAnim="@anim/anim_slide_out_right"
+            android:id="@+id/action_editWisataFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

@@ -16,10 +16,11 @@
             android:id="@+id/iv_wisata"
             android:layout_width="300dp"
             android:layout_height="300dp"
+            android:adjustViewBounds="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@color/primary_color" />
+            tools:src="@drawable/logo_wisky" />
 
         <FrameLayout
             android:id="@+id/fl_gradient_black"

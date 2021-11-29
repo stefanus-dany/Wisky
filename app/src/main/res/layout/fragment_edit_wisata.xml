@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddWisataFragment">
+    tools:context=".EditWisataFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_delete"
+            android:layout_width="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            android:src="@drawable/ic_baseline_delete_24"/>
 
         <LinearLayout
             android:id="@+id/ll2"
@@ -25,7 +36,7 @@
                 android:layout_marginTop="@dimen/margin"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
-                android:text="@string/tambah_wisata"
+                android:text="@string/edit_wisata"
                 android:textColor="@color/primary_color"
                 android:textSize="24sp"
                 android:layout_gravity="center_horizontal"/>
@@ -161,12 +172,31 @@
                 android:layout_width="300dp"
                 android:layout_height="300dp"
                 android:layout_gravity="center"
-                android:visibility="gone"
                 tools:src="@color/primary_color"
                 tools:ignore="ContentDescription" />
 
 
         </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_edit_wisata"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/margin"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginBottom="@dimen/margin"
+            android:background="@drawable/btn_primary"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/edit_wisata"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ll2" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -177,25 +207,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_add_wisata"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="@dimen/margin"
-            android:layout_marginTop="@dimen/margin"
-            android:layout_marginBottom="@dimen/margin"
-            android:background="@drawable/btn_primary"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/tambah_wisata"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ll2" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+</ScrollView>

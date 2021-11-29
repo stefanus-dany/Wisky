@@ -17,7 +17,7 @@ class DetailWisataFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentDetailWisataBinding.inflate(inflater)
+        _binding = FragmentDetailWisataBinding.inflate(inflater, container, false)
 
         //supaya edit text gabisa diklik
         binding.etDesc.keyListener = null

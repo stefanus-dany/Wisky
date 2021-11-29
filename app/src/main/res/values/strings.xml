@@ -18,6 +18,7 @@
     <string name="kontak">Kontak</string>
     <string name="jam_operasional">Jam Operasional</string>
     <string name="kembali">Kembali</string>
+    <string name="edit_wisata">Edit Wisata</string>
 
     <string-array name="drop_down_wisata_array">
         <item>Pilih kategori</item>
