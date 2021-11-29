@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.project.wisky.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_detailWisataFragment"
+            app:destination="@id/detailWisataFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"/>
+        <action
+            android:id="@+id/action_homeFragment_to_addWisataFragment"
+            app:destination="@id/addWisataFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_right"
+            app:popExitAnim="@anim/anim_slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/detailWisataFragment"
+        android:name="com.project.wisky.DetailWisataFragment"
+        android:label="fragment_detail_wisata"
+        tools:layout="@layout/fragment_detail_wisata" />
+    <fragment
+        android:id="@+id/addWisataFragment"
+        android:name="com.project.wisky.AddWisataFragment"
+        android:label="fragment_add_wisata"
+        tools:layout="@layout/fragment_add_wisata" >
+        <action
+            android:id="@+id/action_addWisataFragment_to_homeFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/anim_slide_out_left"
+            app:popEnterAnim="@anim/anim_slide_in_right"
+            app:popExitAnim="@anim/anim_slide_out_right"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>

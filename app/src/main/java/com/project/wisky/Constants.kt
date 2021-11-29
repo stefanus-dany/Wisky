@@ -3,14 +3,24 @@ package com.project.wisky
 import android.content.Context
 import android.graphics.Color
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.snackbar.Snackbar
 
 object Constants {
 
-    const val CHECK_USERNAME = "check_email"
+    const val CHECK_USERNAME = "check_username"
     const val REMEMBER_ME = "remember_me"
+    const val WISATA_NAME = "wisata_name"
+    const val WISATA_DESC = "wisata_desc"
+    const val WISATA_ADDRESS = "wisata_address"
+    const val WISATA_WORKING_HOUR = "wisata_working_hour"
+    const val WISATA_CONTACT = "wisata_contact"
+    const val WISATA_CATEGORY = "wisata_category"
+    const val WISATA_IMAGE = "wisata_image"
 
     fun showSnackbar(context: Context, view: View, text: String) {
         val snackbar = Snackbar.make(
@@ -30,5 +40,13 @@ object Constants {
         textView.setTextColor(Color.WHITE)
         textView.textSize = 14f
         snackbar.show()
+    }
+
+    fun ImageView.loadImage(url: String?) {
+        Glide.with(this.context)
+            .load(url)
+            .apply(RequestOptions().override(500, 500))
+            .centerCrop()
+            .into(this)
     }
 }

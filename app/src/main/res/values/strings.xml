@@ -9,4 +9,22 @@
     <string name="username">Username</string>
     <string name="sign_up">Sign Up</string>
     <string name="welcome">Selamat Datang di Wisky</string>
+    <string name="tambah_wisata">Tambah Wisata</string>
+    <string name="logout">Keluar</string>
+    <string name="nama_wisata">Nama Wisata</string>
+    <string name="upload">Upload</string>
+    <string name="deskripsi_wisata">Deskripsi Wisata</string>
+    <string name="alamat_wisata">Alamat Wisata</string>
+    <string name="kontak">Kontak</string>
+    <string name="jam_operasional">Jam Operasional</string>
+    <string name="kembali">Kembali</string>
+
+    <string-array name="drop_down_wisata_array">
+        <item>Pilih kategori</item>
+        <item>Taman</item>
+        <item>Alam</item>
+        <item>Agrowisata</item>
+        <item>Budaya</item>
+    </string-array>
+
 </resources>

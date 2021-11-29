@@ -191,9 +191,4 @@ class LoginFragment : Fragment(), View.OnClickListener {
             editor.apply()
         } else editor.clear().apply()
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        auth.signOut()
-    }
 }
