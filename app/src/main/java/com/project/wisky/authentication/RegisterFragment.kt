@@ -1,22 +1,20 @@
 package com.project.wisky.authentication
 
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.project.wisky.Constants.showSnackbar
 import com.project.wisky.R
 import com.project.wisky.databinding.FragmentRegisterBinding
 import com.project.wisky.model.UserModel
@@ -91,8 +89,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
                     return onClick(view)
                 }
 
-                cekEmailRegistered()
-
+                checkUsernameAvailability(username = binding.etUsername.text.toString().trim())
             }
         }
     }
@@ -104,12 +101,33 @@ class RegisterFragment : Fragment(), View.OnClickListener {
                 Log.i("cekEmail", "cekEmailRegistered: ${it.result?.signInMethods?.size}")
                 //cek email terdafar
                 if (it.result?.signInMethods?.size != 0) {
-                    showSnackbar(binding.container, "Email telah terdaftar!")
+                    showSnackbar(requireContext(), binding.container, "Email telah terdaftar!")
                     binding.progressBar.visibility = View.GONE
                 } else {
                     createAccount()
                 }
             }
+    }
+
+    private fun checkUsernameAvailability(username: String) {
+        val query = FirebaseDatabase.getInstance().reference.child("Users")
+            .orderByChild("username")
+            .equalTo(username)
+        query.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(data: DataSnapshot) {
+                if (data.exists()) {
+                    showSnackbar(requireContext(), binding.container, "Username has been taken!")
+                    binding.progressBar.visibility = View.GONE
+                } else {
+                    cekEmailRegistered()
+                }
+            }
+
+            override fun onCancelled(data: DatabaseError) {
+                Log.d("RegisterFragment", data.message)
+            }
+
+        })
     }
 
     private fun createAccount() {
@@ -137,7 +155,11 @@ class RegisterFragment : Fragment(), View.OnClickListener {
                         if (task.isSuccessful) {
                             binding.progressBar.visibility = View.INVISIBLE
                             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-                            showSnackbar(binding.container, "Terima kasih sudah mendaftar!")
+                            showSnackbar(
+                                requireContext(),
+                                binding.container,
+                                "Terima kasih sudah mendaftar!"
+                            )
 
                             //untuk menghapus semua fragment sebelumnya
 //                            val manager = requireActivity().supportFragmentManager
@@ -160,7 +182,7 @@ class RegisterFragment : Fragment(), View.OnClickListener {
 //                            )
 
                         } else {
-                            showSnackbar(binding.container, "Error from database")
+                            showSnackbar(requireContext(), binding.container, "Error from database")
                             binding.progressBar.visibility = View.INVISIBLE
                         }
                     }
@@ -169,26 +191,6 @@ class RegisterFragment : Fragment(), View.OnClickListener {
                     binding.progressBar.visibility = View.INVISIBLE
                 }
             }
-    }
-
-    private fun showSnackbar(view: View, text: String) {
-        val snackbar = Snackbar.make(
-            view, text,
-            Snackbar.LENGTH_SHORT
-        ).setAction("Ok", null)
-            .setActionTextColor(ContextCompat.getColor(requireContext(), R.color.white))
-        val snackbarView = snackbar.view
-        snackbarView.setBackgroundColor(
-            ContextCompat.getColor(
-                requireContext(),
-                R.color.primary_color
-            )
-        )
-        val textView =
-            snackbarView.findViewById(com.google.android.material.R.id.snackbar_text) as TextView
-        textView.setTextColor(Color.WHITE)
-        textView.textSize = 14f
-        snackbar.show()
     }
 
 }

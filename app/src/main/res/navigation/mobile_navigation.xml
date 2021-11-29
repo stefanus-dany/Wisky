@@ -41,7 +41,7 @@
         tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
+            app:destination="@id/onboardingFragment"
             app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/fadeout"
             app:popEnterAnim="@anim/fadein"
