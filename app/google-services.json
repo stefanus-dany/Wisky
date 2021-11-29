@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "34827013413",
+    "project_id": "wisky-223d5",
+    "storage_bucket": "wisky-223d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34827013413:android:16004a7827a741a501decc",
+        "android_client_info": {
+          "package_name": "com.project.wisky"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34827013413-d6avl9f5tc2t5iuqps1615s9orbpnuqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7LBHXVIIyL9LM842mpw9WkvMY1dXWTaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34827013413-d6avl9f5tc2t5iuqps1615s9orbpnuqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

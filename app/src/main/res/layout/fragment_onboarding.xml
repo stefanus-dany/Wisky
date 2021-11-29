@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".authentication.OnboardingFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginHorizontal="@dimen/margin"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/welcome"
+        android:textColor="@color/primary_color"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin"
+        android:src="@drawable/logo_wisky"
+        tools:ignore="ContentDescription" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_marginTop="@dimen/margin"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_primary"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_register"
+        android:layout_marginHorizontal="@dimen/margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_secondary"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/sign_up"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin"
+        android:textAllCaps="false"
+        android:textColor="@color/primary_color"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>
